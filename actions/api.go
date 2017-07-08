@@ -3,7 +3,6 @@ package actions
 import (
 	"about_me/models"
 	"encoding/json"
-	"fmt"
 
 	"github.com/gobuffalo/buffalo"
 	"github.com/markbates/pop"
@@ -33,9 +32,6 @@ func ApiGetEntries(c buffalo.Context) error {
 	if err != nil {
 		return nil
 	}
-
-	fmt.Println("entries")
-	fmt.Println(entries)
 
 	json.NewEncoder(c.Response()).Encode(entries)
 	return nil
