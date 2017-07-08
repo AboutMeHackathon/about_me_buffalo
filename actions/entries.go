@@ -32,3 +32,21 @@ func EntriesCreate(c buffalo.Context) error {
 
 	return c.Redirect(301, "/")
 }
+
+func EntriesDestroy(c buffalo.Context) error {
+	entrie := &models.Entrie{}
+	entryID := c.Param("id")
+	tx := c.Get("tx").(*pop.Connection)
+
+	err := tx.Find(entrie, entryID)
+	if err != nil {
+		return nil
+	}
+
+	err = tx.Destroy(entrie)
+	if err != nil {
+		return errors.WithStack(err)
+	}
+
+	return c.Redirect(301, "/")
+}

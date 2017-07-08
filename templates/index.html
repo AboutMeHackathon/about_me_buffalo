@@ -1,9 +1,1 @@
-<ul class="list-group">
-  <%= for (key, value) in entries { %>
-    <li class="list-group-item">
-      <h3><%= value.Key %></h3>
-      <p><%= value.Value %></p>
-      <span>Categoria: <strong><%= value.Category %></strong></span>
-    </li>
-  <% } %>
-</ul>
+<%= partial("shared/entries.html") %>
