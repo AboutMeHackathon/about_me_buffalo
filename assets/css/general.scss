@@ -47,3 +47,26 @@
         font-size: 25px;
     }
 }
+
+.empty-state{
+    text-align: center;
+    margin-top: 50px;
+
+    img {
+        width: 210px;
+    }
+}
+
+.friend-name{
+    display: inline-block;
+    width: 100%;
+    margin-top: 5px;
+
+    h4{ display: inline-block; }
+
+    a{ margin-top: 5px; }
+}
+
+hr{
+    margin-top: 10px;
+}

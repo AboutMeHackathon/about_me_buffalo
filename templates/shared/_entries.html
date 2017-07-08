@@ -1,12 +1,18 @@
 <ul class="list-group">
-  <%= for (key, entry) in entries { %>
-    <li class="list-group-item">
-      <a class="pull-right" href="<%= entryPath({ id: entry.ID }) %>" data-method="DELETE" data-confirm="Are you sure?">
-        <i class="fa fa-trash-o" aria-hidden="true"></i>
-      </a>
-      <h3><%= entry.Key %></h3>
-      <p><%= entry.Value %></p>
-      <span>Categoria: <strong><%= entry.Category %></strong></span>
-    </li>
+  <%= if (len(entries) > 0) { %>
+    <%= for (key, entry) in entries { %>
+      <li class="list-group-item">
+        <a class="pull-right" href="<%= entryPath({ id: entry.ID }) %>" data-method="DELETE" data-confirm="Are you sure?">
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </a>
+        <h3><%= entry.Key %></h3>
+        <p><%= entry.Value %></p>
+        <span>Categoria: <strong><%= entry.Category %></strong></span>
+      </li>
+    <% } %>
+  <% } else { %>
+    <div class="empty-state">
+      <img src="/assets/images/empty_state.png" alt="">
+    </div>
   <% } %>
 </ul>

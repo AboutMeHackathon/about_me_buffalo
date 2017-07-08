@@ -39,7 +39,7 @@ func UsersShowEntries(c buffalo.Context) error {
 		return nil
 	}
 
-	c.Set("username", user.FullName)
+	c.Set("friend", user.FullName)
 	c.Set("entries", entries)
 
 	return c.Render(200, r.HTML("users/show_entries.html"))
