@@ -15,7 +15,11 @@ var _ = grift.Add("db:seed", func(c *grift.Context) error {
 	models.DB.Create(user)
 	user = &models.User{FullName: "Cristian Pelaez", Email: "cpelaez@wawand.co", Password: "cristian12345"}
 	models.DB.Create(user)
-	user = &models.User{FullName: "Jessica Villalobos", Email: "jvillalobos@wawand.co", Password: "12345"}
+	user = &models.User{FullName: "Jessica Villalobos", Email: "jvillalobos@wawand.co", Password: "jessica12345"}
+	models.DB.Create(user)
+	user = &models.User{FullName: "Pedro Aguilar", Email: "paguilar@wawand.co", Password: "pedro12345"}
+	models.DB.Create(user)
+	user = &models.User{FullName: "Dalgis Villalobos", Email: "dvillalobos@wawand.co", Password: "dalgis12345"}
 	models.DB.Create(user)
 
 	return nil

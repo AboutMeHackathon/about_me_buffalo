@@ -62,9 +62,11 @@ func App() *buffalo.App {
 		app.GET("/users/{user_id}/show", UsersShowEntries)
 
 		// Routes for API
-		app.Middleware.Skip(LoginMW, ApiValidateLogin, ApiGetEntries)
+		app.Middleware.Skip(LoginMW, ApiValidateLogin, ApiGetEntries, ApiUsersList, ApiGetEntriesByUserID)
 		app.POST("/api/session/new", ApiValidateLogin)
 		app.GET("/api/get_entries", ApiGetEntries)
+		app.GET("/api/users", ApiUsersList)
+		app.GET("/api/users/{user_id}/show", ApiGetEntriesByUserID)
 	}
 
 	return app
