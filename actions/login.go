@@ -2,7 +2,6 @@ package actions
 
 import (
 	"about_me/models"
-	"net/http"
 
 	"github.com/gobuffalo/buffalo"
 )
@@ -33,7 +32,7 @@ func ValidateLogin(c buffalo.Context) error {
 	user, err := models.SearchUser(email, password)
 	if err != nil {
 		c.Flash().Add("error", "Invalid Email or Password")
-		return c.Redirect(http.StatusSeeOther, "/session/new")
+		return c.Redirect(301, "/session/new")
 	}
 
 	c.Session().Set("user_id", user.ID)

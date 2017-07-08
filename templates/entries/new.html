@@ -1,1 +1,10 @@
-<h1>Entries#New</h1>
+<h1>New Entries</h1>
+
+<%= form_for(entrie, {action: "/entries/create", method: "POST", errors: errors}) { %>
+    <%= f.SelectTag("Category", { options: ["Habilidades", "Datos Personales", "Gustos", "Deseos"] }) %>
+    <%= f.InputTag("Key") %>
+    <%= f.InputTag("Value") %>
+    <%= f.InputTag("UserID", {type: "hidden", value: user_id, hide_label: true}) %>
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <a href="<%= rootPath() %>" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
+<% } %>

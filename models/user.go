@@ -2,6 +2,7 @@ package models
 
 import (
 	"encoding/json"
+	"errors"
 	"time"
 
 	"github.com/markbates/pop"
@@ -64,7 +65,7 @@ func SearchUser(email, password string) (User, error) {
 	}
 
 	if user.Password != password {
-		return User{}, err
+		return User{}, errors.New("Some Error")
 	}
 
 	return user, nil

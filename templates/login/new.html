@@ -1,5 +1,7 @@
-<%= form_for(user, {action: "/session/new", method: "POST", errors: errors}) { %>
-  <%= f.InputTag("Email") %>
-  <%= f.InputTag("Password") %>
-  <button type="submit">Login</button>
-<% } %>
+<div class="login-form">
+  <%= form_for(user, {action: "/session/new", method: "POST", errors: errors}) { %>
+    <%= f.InputTag("Email") %>
+    <%= f.InputTag("Password", {type: "password"}) %>
+    <button class="btn btn-success pull-right" type="submit">Login</button>
+  <% } %>
+</div>

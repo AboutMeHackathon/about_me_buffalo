@@ -1,0 +1,35 @@
+.sub-buttons{
+    width: 100%;
+    background: #68b2e6;
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+
+    .button{
+        display: inline-block;
+        width: 49%;
+        margin: 0;
+        text-align: center;
+
+        a{
+            text-decoration: none;
+            font-size: 20px;
+            color: #fff;
+            padding: 16px;
+            width: 100%;
+            display: inline-block;
+        }
+    }
+
+    .button:last-child{
+        border-left: 3px solid #fff;
+    }
+}
+
+.login-form{
+    margin-top: 20px;
+
+    button{
+        width: 100%;
+    }
+}

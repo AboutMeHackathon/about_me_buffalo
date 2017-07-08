@@ -2,15 +2,20 @@ package actions
 
 import (
 	"about_me/models"
-	"encoding/json"
 
 	"github.com/gobuffalo/buffalo"
 	"github.com/markbates/pop"
 	"github.com/pkg/errors"
 )
 
-// EntriesNew default implementation.
 func EntriesNew(c buffalo.Context) error {
+	c.Set("entrie", models.Entrie{})
+	c.Set("user_id", c.Session().Get("user_id"))
+	return c.Render(200, r.HTML("entries/new.html"))
+}
+
+// EntriesCreate default implementation.
+func EntriesCreate(c buffalo.Context) error {
 	entrie := &models.Entrie{}
 
 	err := c.Bind(entrie)
@@ -25,8 +30,5 @@ func EntriesNew(c buffalo.Context) error {
 		return nil
 	}
 
-	json.NewEncoder(c.Response()).Encode(entrie)
-
-	// return nil
-	return c.Render(200, r.HTML("entries/new.html"))
+	return c.Redirect(301, "/")
 }

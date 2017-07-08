@@ -54,7 +54,12 @@ func App() *buffalo.App {
 		app.DELETE("/session/logout", Logout)
 
 		app.ServeFiles("/assets", packr.NewBox("../public/assets"))
-		app.POST("/entries/new", EntriesNew)
+		app.GET("/entries/new", EntriesNew)
+		app.POST("/entries/create", EntriesCreate)
+
+		app.GET("/users/list", UsersList)
+		// app.GET("/users/{user_id}/show", UsersShowEntries)
+		app.POST("/users/{user_id}/show", UsersShowEntries)
 	}
 
 	return app
