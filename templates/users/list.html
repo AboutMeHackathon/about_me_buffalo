@@ -1,7 +1,7 @@
 <div class="list-group">
     <%= for (key, user) in users { %>
         <%= if (user.FullName != username) { %>
-            <a href="<%= userShowPath({user_id: user.ID}) %>" data-method="POST" class="list-group-item list-group-item-action flex-column align-items-start">
+            <a href="<%= userShowPath({user_id: user.ID}) %>" class="list-group-item list-group-item-action flex-column align-items-start">
                 <h3 class="mb-1"><%= user.FullName %></h3>
             </a>
         <% } %>

@@ -59,9 +59,7 @@ func App() *buffalo.App {
 		app.DELETE("/entries/{id}", EntriesDestroy)
 
 		app.GET("/users/list", UsersList)
-		// app.GET("/users/{user_id}/show", UsersShowEntries)
-		app.POST("/users/{user_id}/show", UsersShowEntries)
-
+		app.GET("/users/{user_id}/show", UsersShowEntries)
 	}
 
 	return app
