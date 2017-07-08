@@ -37,6 +37,8 @@ func App() *buffalo.App {
 
 		app.Use(middleware.PopTransaction(models.DB))
 
+		app.Use(LoginMW)
+
 		// Setup and use translations:
 		var err error
 		T, err = i18n.New(packr.NewBox("../locales"), "en-US")
@@ -47,7 +49,12 @@ func App() *buffalo.App {
 
 		app.GET("/", HomeHandler)
 
+		app.GET("/session/new", LoginNew)
+		app.POST("/session/new", ValidateLogin)
+		app.DELETE("/session/logout", Logout)
+
 		app.ServeFiles("/assets", packr.NewBox("../public/assets"))
+		app.POST("/entries/new", EntriesNew)
 	}
 
 	return app

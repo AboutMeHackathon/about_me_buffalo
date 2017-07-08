@@ -55,3 +55,17 @@ func (u *User) ValidateSave(tx *pop.Connection) (*validate.Errors, error) {
 func (u *User) ValidateUpdate(tx *pop.Connection) (*validate.Errors, error) {
 	return validate.NewErrors(), nil
 }
+
+func SearchUser(email, password string) (User, error) {
+	var user User
+	err := DB.Where("email = ?", email).First(&user)
+	if err != nil {
+		return User{}, err
+	}
+
+	if user.Password != password {
+		return User{}, err
+	}
+
+	return user, nil
+}
